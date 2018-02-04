@@ -2,16 +2,20 @@ import axios from 'axios';
 
 const getLuke = () => {  
     return dispatch => {
+      dispatch({type: "GET_LUKE"})
       axios.get('/people/1')
         .then(luke => {
           dispatch(gotLuke(luke));
+        })
+        .catch(payload => {
+          dispatch({type: "GET_LUKE_ERROR", payload})
         });
     }
 }
   
 const gotLuke = (luke) => {  
     return {
-      type: "GOT_LUKE",
+      type: "GET_LUKE_SUCCESS",
       payload: luke
     };
 }

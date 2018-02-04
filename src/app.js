@@ -12,7 +12,11 @@ class AppComponent extends React.Component {
     return (
         <div style={{textAlign: 'center'}}>
             <h1>React - Redux Sandbox</h1>
-            <h3></h3>
+            {
+                this.props.status === "LOADING" ?
+                "LOADING..." :
+                JSON.stringify(this.props.data)
+            }
         </div>
     )
   }
