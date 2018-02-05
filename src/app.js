@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import getLuke from './actions'
+import GridComponent from './grid'
 
 class AppComponent extends React.Component {
 
@@ -10,13 +11,9 @@ class AppComponent extends React.Component {
 
   render() {
     return (
-        <div style={{textAlign: 'center'}}>
-            <h1>React - Redux Sandbox</h1>
-            {
-                this.props.status === "LOADING" ?
-                "LOADING..." :
-                JSON.stringify(this.props.data)
-            }
+        <div>
+            <h1>React - Redux Grid App</h1>
+            <GridComponent />
         </div>
     )
   }
