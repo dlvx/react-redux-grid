@@ -16,10 +16,17 @@ class GridComponent extends React.Component {
   constructor(){
     super()
     this.items = []
-    for(let i = 0; i < 30; i++){
+    for(let i = 0; i < 63; i++){
       this.items.push({
-        id: i
+        id: "gridelement" + i
       })
+    }
+    const cols = {lg: 4, md: 4, sm: 3, xs: 2, xxs: 1}
+    const layout = buildLayouts(this.items, cols)
+
+    this.state = {
+      layout,
+      cols
     }
   }
 
@@ -27,18 +34,20 @@ class GridComponent extends React.Component {
   }
 
   render() {
-    let cols = {lg: 12, md: 10, sm: 6, xs: 4, xxs: 2}
+
+    let items = this.items.map((item) => <div key={item.id} className="grid-item"></div>)
+    
     return (
-      <ResponsiveReactGridLayout 
-        className="layout" 
-        layouts={buildLayouts(this.items, cols)} rowHeight={30} width={1200}
-        breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
-        cols={cols}
-        >
-        {
-          this.items.map((item) => <div key={item.id} className="grid-item">{item.id}</div>)
-        }
-      </ResponsiveReactGridLayout>
+      <div>
+        <ResponsiveReactGridLayout 
+          className="layout" 
+          layouts={this.state.layout} rowHeight={300}
+          breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
+          cols={this.state.cols}
+          >
+          {items}
+        </ResponsiveReactGridLayout>
+      </div>
     )
   }
 }

@@ -1,25 +1,31 @@
 
-const defaultItemLayout = (index, col, row) => {
-    return {i: index.toString(), x: col, y: row, w: 1, h: 2, static: true}
+const defaultItemLayout = (id, row, col) => {
+    return {
+        i: id, 
+        x: col, 
+        y: row, 
+        w: 1, 
+        h: 1, 
+        static: true
+    }
 }
 
 export const buildLayout = (items, cols) => {
-    let col = 0
-    let row = 0
+    
     let itemLayout
 
-    return items.map((item, index) => {
-        
-        itemLayout = defaultItemLayout(index, col, row)
-        
-        if(col < cols) col += 1
-        else {
-            col = 0
-            row += 1
+    let coordinates = []
+    
+    let rows = Math.round(items.length / cols) + 1
+    
+    for(let row = 0; row < rows; row++){
+        for(let col = 0; col < cols; col++){
+            coordinates.push({x: row, y: col})
         }
+    }
 
-        return itemLayout
-    })
+    return items.map((item, index) => defaultItemLayout(item.id, coordinates[index].x, coordinates[index].y))
+
 }
 
 export const buildLayouts = (items, cols) => {
