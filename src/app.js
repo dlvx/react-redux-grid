@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import getLuke from './actions'
 import GridComponent from './grid'
+import {Header} from './layout'
 
 class AppComponent extends React.Component {
 
@@ -12,7 +13,7 @@ class AppComponent extends React.Component {
   render() {
     return (
         <div>
-            <h1>React - Redux Grid App</h1>
+            <Header />
             <GridComponent />
         </div>
     )

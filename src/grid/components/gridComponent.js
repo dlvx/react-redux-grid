@@ -1,14 +1,15 @@
-import React from 'react';
-
 import "react-grid-layout/css/styles.css"
 import "react-resizable/css/styles.css"
 import "../styles/grid.scss"
 
+import React from 'react';
 import ReactGridLayout from 'react-grid-layout';
 import {Responsive, WidthProvider} from 'react-grid-layout';
+import {buildLayouts} from '../layout'
+
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
-import {buildLayouts} from '../layout'
+
 
 
 class GridComponent extends React.Component {
