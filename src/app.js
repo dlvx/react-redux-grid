@@ -1,21 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux'
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  hashHistory
+} from 'react-router-dom'
+
 import getLuke from './actions'
-import GridComponent from './grid'
 import {Header} from './layout'
+import GridComponent from './grid'
+
 
 class AppComponent extends React.Component {
 
   componentWillMount(){
-    this.props.getLukeFunc()
+    // this.props.getLukeFunc()
   }
 
   render() {
     return (
-        <div>
-            <Header />
-            <GridComponent />
-        </div>
+        <Router history={hashHistory}>
+            <div>
+                <Header />
+                <Link to="/">Home </Link>
+                <Link to="/grid">Grid</Link>
+                <Route path="/grid" component={GridComponent} />
+            </div>
+        </Router>
     )
   }
 }

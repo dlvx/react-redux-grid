@@ -3,7 +3,7 @@ import axios from 'axios';
 const getLuke = () => {  
     return dispatch => {
       dispatch({type: "GET_LUKE"})
-      axios.get('/people/1')
+      axios.get('apis/people/1')
         .then(luke => {
           dispatch(gotLuke(luke));
         })
