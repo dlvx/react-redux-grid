@@ -1,9 +1,9 @@
 
-const defaultItemLayout = (id, row, col) => {
+const defaultItemLayout = (id, coordinates) => {
     return {
         i: id, 
-        x: col, 
-        y: row, 
+        x: coordinates.x, 
+        y: coordinates.y, 
         w: 1, 
         h: 1, 
         static: true
@@ -18,13 +18,13 @@ export const buildLayout = (items, cols) => {
     
     let rows = Math.round(items.length / cols) + 1
     
-    for(let row = 0; row < rows; row++){
-        for(let col = 0; col < cols; col++){
-            coordinates.push({x: row, y: col})
+    for(let y = 0; y < rows; y++){
+        for(let x = 0; x < cols; x++){
+            coordinates.push({x, y})
         }
     }
 
-    return items.map((item, index) => defaultItemLayout(item.id, coordinates[index].x, coordinates[index].y))
+    return items.map((item, index) => defaultItemLayout(item.id, coordinates[index]))
 
 }
 
