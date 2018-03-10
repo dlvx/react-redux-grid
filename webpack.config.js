@@ -39,7 +39,8 @@ module.exports = {
         secure: false,
         changeOrigin: true
       }
-    }
+    },
+    historyApiFallback: true
 },
   plugins: [HtmlWebpackPluginConfig]
 }

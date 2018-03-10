@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import {
   BrowserRouter as Router,
   Route,
-  Link,
-  hashHistory
+  Link
 } from 'react-router-dom'
 
 import getLuke from './actions'
@@ -21,7 +20,7 @@ class AppComponent extends React.Component {
 
   render() {
     return (
-        <Router history={hashHistory}>
+        <Router>
             <div>
                 <Header />
                 <Link to="/">Home </Link>
