@@ -1,3 +1,3 @@
-import GridComponent from './components/gridComponent'
+import GridRouter from './components/gridRouter'
 
-export default GridComponent
+export default GridRouter

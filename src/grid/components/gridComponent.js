@@ -6,10 +6,11 @@ import React from 'react';
 import ReactGridLayout from 'react-grid-layout';
 import {Responsive, WidthProvider} from 'react-grid-layout';
 import {buildLayouts} from '../layout'
+import {
+  Link
+} from 'react-router-dom'
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
-
-
 
 
 class GridComponent extends React.Component {
@@ -36,7 +37,9 @@ class GridComponent extends React.Component {
 
   render() {
 
-    let items = this.items.map((item) => <div key={item.id} className="grid-item"></div>)
+    let items = this.items.map((item) => 
+        <Link key={item.id} to={`/grid/${item.id}`} className="grid-item">{item.id}</Link>
+      )
     
     return (
       <div>

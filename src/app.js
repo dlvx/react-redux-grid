@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 import {
-  BrowserRouter as Router,
   Route,
-  Link
+  Switch,
+  withRouter
 } from 'react-router-dom'
 
 import getLuke from './actions'
 import {Header} from './layout'
-import GridComponent from './grid'
+import GridRouter from './grid'
 
 
 class AppComponent extends React.Component {
@@ -20,14 +20,13 @@ class AppComponent extends React.Component {
 
   render() {
     return (
-        <Router>
-            <div>
-                <Header />
-                <Link to="/">Home </Link>
-                <Link to="/grid">Grid</Link>
-                <Route path="/grid" component={GridComponent} />
-            </div>
-        </Router>
+        <div>
+            <Header />
+            <Switch>
+                <Route exact path="/" render={() => {return <div>Home</div>}} />
+                <Route path="/grid" component={GridRouter} />
+            </Switch>
+        </div>
     )
   }
 }
@@ -42,8 +41,8 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const App = connect(
+const App = withRouter(connect(
     mapStateToProps, mapDispatchToProps
-)(AppComponent)
+)(AppComponent))
 
 export default App
