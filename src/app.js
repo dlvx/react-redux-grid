@@ -9,8 +9,8 @@ import {
 
 import getLuke from './actions'
 import {Header} from './layout'
-import GridRouter from './grid'
-
+import {SubRouter} from './routing'
+import config from './config'
 
 class AppComponent extends React.Component {
 
@@ -19,13 +19,11 @@ class AppComponent extends React.Component {
   }
 
   render() {
+    const routes = config.routes
     return (
         <div>
             <Header />
-            <Switch>
-                <Route exact path="/" render={() => {return <div>Home</div>}} />
-                <Route path="/grid" component={GridRouter} />
-            </Switch>
+            <SubRouter routes={routes} root/>
         </div>
     )
   }

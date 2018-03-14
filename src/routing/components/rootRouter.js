@@ -4,15 +4,13 @@ import {
   HashRouter as Router
 } from 'react-router-dom'
 
-import App from './app.js';
 
-
-const RouterComponent = () => {
+const RootRouter = (props) => {
     return (
         <Router>
-            <App />
+            {props.children}
         </Router>
     )
 }
 
-export default RouterComponent
+export default RootRouter
