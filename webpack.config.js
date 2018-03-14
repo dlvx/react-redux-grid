@@ -32,6 +32,7 @@ module.exports = {
         }
     ]
   },
+  devtool: '#inline-source-map',
   devServer: {
     proxy: {
       "/apis": {
@@ -40,7 +41,7 @@ module.exports = {
         changeOrigin: true
       }
     },
-    historyApiFallback: true
+  historyApiFallback: true
 },
   plugins: [HtmlWebpackPluginConfig]
 }
