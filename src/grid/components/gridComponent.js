@@ -10,7 +10,7 @@ import {buildLayouts} from '../layout'
 import {
   Link
 } from 'react-router-dom'
-import { Card, Icon, Image, Grid, Segment } from 'semantic-ui-react'
+import { Container, Card, Icon, Image, Grid, Segment } from 'semantic-ui-react'
 
 const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
@@ -56,7 +56,7 @@ class GridComponent extends React.Component {
       )
     
     return (
-      <div>
+      <Container>
         {/*<ResponsiveReactGridLayout 
           className="layout" 
           layouts={this.state.layout} rowHeight={300}
@@ -65,12 +65,10 @@ class GridComponent extends React.Component {
           >
           {items}
         </ResponsiveReactGridLayout>*/}
-        <Grid stackable columns={3}>
-          <Grid.Column>
+        <Grid stackable columns={4}>
             {items}
-          </Grid.Column>
         </Grid>
-      </div>
+      </Container>
     )
   }
 }
