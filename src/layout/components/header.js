@@ -7,9 +7,9 @@ import { Segment, Menu } from 'semantic-ui-react'
 
 class Header extends Component {
 
-    constructor(){
-        super();
-        this.state = { activeItem: 'home' }
+    constructor(props){
+        super(props);
+        this.state = { activeItem: props.location.pathname }
     }
     
 
@@ -19,10 +19,8 @@ class Header extends Component {
         return <div className="app-header">
             <Segment inverted attached>
                 <Menu inverted pointing secondary >
-                    <Menu.Item name='home' active={this.state.activeItem === 'home'} onClick={() => this.handleItemClick}/>
-                    <Menu.Item name='grid' active={this.state.activeItem === 'grid'} onClick={() => this.handleItemClick}/>
-                    {/*<Link to="/">Home </Link>
-                    <Link to="/grid">Grid </Link>*/}
+                    <Menu.Item as={Link} to="/" name='/' active={this.state.activeItem === '/'} onClick={(e, item) => this.handleItemClick(e, item)} content="Home"/>
+                    <Menu.Item as={Link} to="/grid" name='/grid' active={this.state.activeItem === '/grid'} onClick={(e, item) => this.handleItemClick(e, item)}/>
                 </Menu>
             </Segment>
         </div>

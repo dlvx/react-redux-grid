@@ -19,9 +19,10 @@ class AppComponent extends React.Component {
   }
 
   render() {
+      
     return (
         <div>
-            <Header />
+            <Header location={this.props.location}/>
             <Switch>
                 <Route exact path="/" render={() => {return <div>Home</div>}} />
                 <Route path="/grid" component={GridRouter} />

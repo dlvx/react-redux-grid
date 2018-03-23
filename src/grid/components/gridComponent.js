@@ -44,19 +44,19 @@ class GridComponent extends React.Component {
           <Card>
             <Image src='https://loremflickr.com/g/320/240/face' />
             <Card.Content>
-              <Card.Header>Daniel</Card.Header>
+              <Card.Header>Jose</Card.Header>
               <Card.Meta>Joined in 2016</Card.Meta>
-              <Card.Description>Daniel is a comedian living in Nashville.</Card.Description>
+              <Card.Description>Jose is a comedian living in Nashville.</Card.Description>
             </Card.Content>
             <Card.Content extra>
-              <Link to={`/grid/${item.id}`} className="grid-item">{item.id}</Link>
+              <Link to={`/grid/${item.id}`} className="grid-item">More</Link>
             </Card.Content>
           </Card>
         </div>
       )
     
     return (
-      <Container>
+      <Segment basic>
         {/*<ResponsiveReactGridLayout 
           className="layout" 
           layouts={this.state.layout} rowHeight={300}
@@ -65,10 +65,10 @@ class GridComponent extends React.Component {
           >
           {items}
         </ResponsiveReactGridLayout>*/}
-        <Grid stackable columns={4}>
+        <Grid stackable centered relaxed columns={4}>
             {items}
         </Grid>
-      </Container>
+      </Segment>
     )
   }
 }
