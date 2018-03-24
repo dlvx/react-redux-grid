@@ -39,17 +39,17 @@ class GridComponent extends React.Component {
 
   render() {
 
-    let items = this.items.map((item) => 
-        <div key={item.id}>
+    let items = this.items.map((item, index) => 
+        <div key={item.id} className="grid-item">
           <Card>
-            <Image src='https://loremflickr.com/g/320/240/face' />
+            <Image src={`https://loremflickr.com/g/320/240/mxr,pedal/all?random=${index}`} />
             <Card.Content>
               <Card.Header>Jose</Card.Header>
               <Card.Meta>Joined in 2016</Card.Meta>
               <Card.Description>Jose is a comedian living in Nashville.</Card.Description>
             </Card.Content>
             <Card.Content extra>
-              <Link to={`/grid/${item.id}`} className="grid-item">More</Link>
+              <Link to={`/grid/${item.id}`} className="grid-item-link">More</Link>
             </Card.Content>
           </Card>
         </div>

@@ -1,8 +1,12 @@
 
 .grid-item {
+    padding: 1rem;
+}
+
+.grid-item-link {
     background-color: aquamarine;
 }
 
-.grid-item:hover {
+.grid-item-link:hover {
     background-color: coral;
 }
